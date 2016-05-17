@@ -39,13 +39,6 @@ nodm_SOURCES = $(libsources)		\
 
 nodm_CFLAGS = -DNODM_SESSION='"$(sbindir)/nodm"'
 
-nodm.8: nodm
-	help2man --section=8 --name="X display manager for automatic logins" \
-		 --no-info --include=nodm-man-extras ./$< > $@
-
-man_MANS = nodm.8 \
-           $(NULL)
-
 TESTS = test-internals test-xstart test-xsession
 check_PROGRAMS = test-internals test-xstart test-xsession
 
@@ -62,7 +55,6 @@ test_internals_SOURCES = $(testlibsources)	\
                          $(NULL)
 
 EXTRA_DIST = test_nodm		\
-             nodm-man-extras	\
              autogen.sh		\
              $(NULL)
 
